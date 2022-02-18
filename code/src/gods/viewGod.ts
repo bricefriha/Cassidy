@@ -31,4 +31,9 @@ export default class ViewGod {
     // Add the view to the list
     this.viewList[viewCode.getName()] = viewTemplate;
   }
+  /**
+   * display   */
+  public display(viewCode: view) {
+    console.log(`${this.viewList[viewCode.getName()].substring(1)}`);
+  }
 }
