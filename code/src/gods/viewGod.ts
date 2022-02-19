@@ -1,4 +1,4 @@
-import view from "../objects/view";
+import { Page } from "../objects/page";
 
 /**
  *  The class that take care of tranlating the view from .json to ts
@@ -18,7 +18,7 @@ export default class ViewGod {
   /**
    * Initiate
    */
-  public Init(viewCode: view) {
+  public Init(viewCode: Page) {
     const viewName = viewCode.getName();
     console.log(viewName);
     console.log(this.viewList[viewName]);
@@ -27,13 +27,8 @@ export default class ViewGod {
    * register
    *
    * */
-  public register(viewTemplate: string, viewCode: view) {
+  public register(viewTemplate: string, viewCode: Page) {
     // Add the view to the list
     this.viewList[viewCode.getName()] = viewTemplate;
-  }
-  /**
-   * display   */
-  public display(viewCode: view) {
-    console.log(`${this.viewList[viewCode.getName()].substring(1)}`);
   }
 }

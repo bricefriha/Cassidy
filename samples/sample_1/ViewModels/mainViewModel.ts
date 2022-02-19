@@ -1,1 +1,3 @@
-export default class MainViewModel {}
+export class MainViewModel {
+  constructor() {}
+}

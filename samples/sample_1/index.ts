@@ -1,16 +1,19 @@
-import mainView from "./views/mainView";
+///import { anotherView } from "./Views/anotherView";
 import viewGod from "../../code/src/gods/viewGod";
 import appGod from "../../code/src/gods/appGod";
-
-// namespace Sample_1 {
-//   //new ();
-//   new Sample_1.Views.AnotherView();
-// }
-
-const vg = new viewGod();
-const ag = new appGod("Sample_1");
+//@ts-ignore
+import path from "path";
+//@ts-ignore
+import process from "process";
+import { MainViewModel } from "./ViewModels/mainViewModel";
+import { MainView } from "./Views/mainViewjson";
 
 // Register all your views
-vg.register("./views/mainView.json", new mainView());
+//vg.register("./Views/mainView.json", new mainView());
+//vg.register("./Views/mainView.json", new anotherView());
 
-vg.display(new mainView());
+const ag = new appGod(__dirname);
+let d = new MainView();
+
+//new MainViewModel();
+ag.display(d);

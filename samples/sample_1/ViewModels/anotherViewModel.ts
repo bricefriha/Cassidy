@@ -1,1 +1,3 @@
-export class AnotherViewModel {}
+export class AnotherViewModel {
+  constructor() {}
+}
