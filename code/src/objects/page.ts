@@ -42,6 +42,7 @@ export class Page {
   }
   /**
    * setTitle - Change the title of the window
+   * @param title Title of the window (showed on the top of it)
    */
   public setTitle(title: string) {
     this.window.title = title ?? this.getName();
@@ -93,5 +94,39 @@ export class Page {
         this.window.setPosition(Gtk.WindowPosition.CENTER_ON_PARENT);
         break;
     }
+  }
+  /**
+   * resetWindow - Set the window
+   * @param type type of the window
+   * @param title title of the window
+   */
+  public resetWindow(type: string, title = this.window.title) {
+    let typeSet: any;
+    // Set the type
+    // I'm converting the type to uppercase so the user as no case constrain
+    switch (type.toUpperCase()) {
+      case "TOPLEVEL":
+        // Set the window as top level
+        //this.window.type = Gtk.WindowType.TOPLEVEL;
+        typeSet = Gtk.WindowType.TOPLEVEL;
+        break;
+      case "POPUP":
+        console.log("Gtk.WindowType.POPUP");
+        // Set the window as a popup
+        //this.window.type = Gtk.WindowType.POPUP;
+        typeSet = Gtk.WindowType.POPUP;
+        break;
+
+      default:
+        console.log("default");
+        typeSet = Gtk.WindowType.TOPLEVEL;
+        break;
+    }
+
+    // Reinstanciate the window
+    this.window = new Gtk.Window({
+      title: title ?? "Cassidy Window",
+      type: typeSet,
+    });
   }
 }

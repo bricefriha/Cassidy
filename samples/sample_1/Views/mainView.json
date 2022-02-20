@@ -3,7 +3,8 @@
         "title": "Sample 1",
         "height": 200,
         "width": 80,
-        "position": "Mouse",
+        "position": "Center",
+        "type": "TopLevel",
         "content": [
             {
                 "Label": {

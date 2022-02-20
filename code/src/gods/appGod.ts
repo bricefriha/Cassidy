@@ -65,11 +65,17 @@ export default class AppGod {
       //console.log(data);
       let pageTemplate = JSON.parse(data);
 
+      // Set the type of the window
+      const winType = pageTemplate.Page.type;
+      if (winType) viewCode.resetWindow(winType);
+
       // Set the size of the page
       viewCode.window.setDefaultSize(
         pageTemplate.Page.height,
         pageTemplate.Page.width
       );
+
+      // Set window position
       viewCode.setPosition(pageTemplate.Page.position);
 
       // Set the title
