@@ -6,7 +6,7 @@ import path from "path";
 //@ts-ignore
 import process from "process";
 import { MainViewModel } from "./ViewModels/mainViewModel";
-import { MainView } from "./Views/mainViewjson";
+import { MainView } from "./Views/mainViewC";
 
 // Register all your views
 //vg.register("./Views/mainView.json", new mainView());

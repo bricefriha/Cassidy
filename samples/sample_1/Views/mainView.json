@@ -1,11 +1,11 @@
 {
-    "Window": {
+    "Page": {
         "height": 200,
         "width": 80,
         "content": [
             {
                 "Label": {
-                "text": "Hello World !"
+                    "text": "Hello World !"
                 }
             }
         ]
