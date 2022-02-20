@@ -6,10 +6,7 @@ export class MainView extends Page {
   constructor() {
     super();
 
+    // Data binding
     this.BindingContext = new MainViewModel();
-
-    // Initiate the View
-    //viewGod.Init(this);
-    //Common.Code.ViewGod;
   }
 }

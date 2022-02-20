@@ -65,4 +65,16 @@ export class Page {
         }
     }
   }
+
+  /**
+   * setPosition
+   * @param pos position
+   */
+  public setPosition(pos: string) {
+    switch (pos.toUpperCase()) {
+      case "CENTER":
+        this.window.setPosition(Gtk.WindowPosition.CENTER);
+        break;
+    }
+  }
 }

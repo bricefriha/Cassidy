@@ -70,6 +70,7 @@ export default class AppGod {
         pageTemplate.Page.height,
         pageTemplate.Page.width
       );
+      viewCode.setPosition(pageTemplate.Page.position);
 
       // Set the title
       viewCode.setTitle(pageTemplate.Page.title);

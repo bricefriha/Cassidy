@@ -3,14 +3,15 @@
         "title": "Sample 1",
         "height": 200,
         "width": 80,
+        "position": "center",
         "content": [
             {
                 "Label": {
-                    "text": "Hello World !"
+                    "text": "   ^_^\n ( •_•)\n / > 🍕"
                 }
             }
-        ]
+        ]   
             
         
     }
-}
+}   

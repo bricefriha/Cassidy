@@ -2,9 +2,9 @@
   "name": "sample_1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "ts-node ./index.ts --trace-warnings"
+    "start": "ts-node ./app.ts --trace-warnings"
   },
   "author": "",
   "license": "ISC",
