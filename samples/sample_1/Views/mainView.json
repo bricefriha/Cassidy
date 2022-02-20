@@ -3,15 +3,13 @@
         "title": "Sample 1",
         "height": 200,
         "width": 80,
-        "position": "center",
+        "position": "Mouse",
         "content": [
             {
                 "Label": {
                     "text": "   ^_^\n ( •_•)\n / > 🍕"
                 }
             }
-        ]   
-            
-        
+        ]
     }
 }   

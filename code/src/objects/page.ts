@@ -71,9 +71,26 @@ export class Page {
    * @param pos position
    */
   public setPosition(pos: string) {
+    // I'm putting to uppercase so the user as no case constrain
     switch (pos.toUpperCase()) {
       case "CENTER":
         this.window.setPosition(Gtk.WindowPosition.CENTER);
+        break;
+      case "CENTERALWAYS":
+        console.log("Gtk.WindowPosition.CENTER_ALWAYS");
+        this.window.setPosition(Gtk.WindowPosition.CENTER_ALWAYS);
+        break;
+      case "MOUSE":
+        console.log("Gtk.WindowPosition.MOUSE");
+        this.window.setPosition(Gtk.WindowPosition.MOUSE);
+        break;
+      case "NONE":
+        console.log("Gtk.WindowPosition.NONE");
+        this.window.setPosition(Gtk.WindowPosition.NONE);
+        break;
+      case "CENTERONPARENT":
+        console.log("Gtk.WindowPosition.CENTER_ALWAYS");
+        this.window.setPosition(Gtk.WindowPosition.CENTER_ON_PARENT);
         break;
     }
   }
