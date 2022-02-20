@@ -73,7 +73,7 @@ export class Page {
    */
   public setPosition(pos: string) {
     // I'm putting to uppercase so the user as no case constrain
-    switch (pos.toUpperCase()) {
+    switch (pos?.toUpperCase()) {
       case "CENTER":
         this.window.setPosition(Gtk.WindowPosition.CENTER);
         break;
