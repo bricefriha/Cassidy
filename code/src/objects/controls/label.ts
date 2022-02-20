@@ -9,12 +9,13 @@ export class Label {
     this._text = v;
   }
 
-  constructor(text: string, win: any) {
+  constructor(win: any, text: string, angle: number) {
     this._text = text;
     // Add the label to the view
     win.add(
       new Gtk.Label({
         label: text,
+        angle: angle,
       })
     );
   }

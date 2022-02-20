@@ -45,13 +45,13 @@ export class Page {
    */
   public setContent(content: Array<any>) {
     // Loop component declared in the template
-    for (const key of content) {
+    for (const obj of content) {
       // ToDo: forin in forof != pretty
-      for (const ctlName in key)
+      for (const ctlName in obj)
         switch (ctlName) {
           case "Label":
-            console.log(this.window);
-            new Label(key.Label.text, this.window);
+            // Create the label
+            new Label(this.window, obj.Label.text, obj.Label.angle ?? 0);
             break;
 
           default:
