@@ -41,7 +41,9 @@ export default class AppGod {
   }
 
   /**
-   * display   */
+   * display - Display a page
+   *
+   */
   public async display(viewCode: Page) {
     // Set up events
     viewCode.window.on("destroy", () => Gtk.mainQuit());
@@ -68,6 +70,10 @@ export default class AppGod {
         pageTemplate.Page.height,
         pageTemplate.Page.width
       );
+
+      // Set the title
+      viewCode.setTitle(pageTemplate.Page.title);
+
       // Set the content
       viewCode.setContent(pageTemplate.Page.content as Array<any>);
 

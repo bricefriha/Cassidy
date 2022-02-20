@@ -41,6 +41,12 @@ export class Page {
     return this.constructor?.name;
   }
   /**
+   * setTitle - Change the title of the window
+   */
+  public setTitle(title: string) {
+    this.window.title = title ?? this.getName();
+  }
+  /**
    * setContent: Set the content of the page
    */
   public setContent(content: Array<any>) {
