@@ -10,7 +10,7 @@ import process from "process";
 import gi from "node-gtk";
 
 // Use GtK
-import { Gtk } from "../index";
+import { Gdk, Gtk } from "../index";
 //const Gtk = gi.require("Gtk", "3.0");
 
 export default class AppGod {
@@ -36,7 +36,7 @@ export default class AppGod {
 
     gi.startLoop();
     Gtk.init();
-
+    Gdk.init([]);
     //process.cwd();
   }
 
@@ -45,10 +45,6 @@ export default class AppGod {
    *
    */
   public async display(viewCode: Page) {
-    // Set up events
-    viewCode.window.on("destroy", () => Gtk.mainQuit());
-    viewCode.window.on("delete-event", () => false);
-
     // Get the template path
     let jsonTemp: string = path.join(
       `${this.path}/Views`,
@@ -68,6 +64,9 @@ export default class AppGod {
       // Set the type of the window
       const winType = pageTemplate.Page.type;
       if (winType) viewCode.resetWindow(winType);
+      // Set up events
+      viewCode.window.on("destroy", () => Gtk.mainQuit());
+      viewCode.window.on("delete-event", () => false);
 
       // Set the size of the page
       viewCode.window.setDefaultSize(
@@ -77,6 +76,9 @@ export default class AppGod {
 
       // Set window position
       viewCode.setPosition(pageTemplate.Page.position);
+
+      // Set Background colour
+      viewCode.setBgHexColour(pageTemplate.Page.backgroundColor);
 
       // Set the title
       viewCode.setTitle(pageTemplate.Page.title);

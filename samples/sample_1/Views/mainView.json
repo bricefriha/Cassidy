@@ -4,6 +4,7 @@
         "height": 200,
         "width": 80,
         "position": "Center",
+        "backgroundColor": "#f1f1f1",
         "type": "TopLevel",
         "content": [
             {

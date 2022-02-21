@@ -2,7 +2,7 @@
 import gi from "node-gtk";
 import { Label } from "./controls/label";
 // Use GtK
-import { Gtk } from "../index";
+import { Gdk, Gtk } from "../index";
 //const Gtk = gi.require("Gtk", "3.0");
 
 export class Page {
@@ -128,5 +128,36 @@ export class Page {
       title: title ?? "Cassidy Window",
       type: typeSet,
     });
+  }
+  /**
+   * setBgColour - change the colour of the background from hexadecimal
+   * @param hex hexadecimal colour
+   */
+  public setBgHexColour(hex: string) {
+    // convert to rgba
+    const colour = new Gdk.RGBA();
+    colour.parse(hex);
+
+    // Change the colour of the window
+    this.window.overrideBackgroundColor(Gtk.StateFlags.NORMAL, colour);
+  }
+  /**
+   * setBgColour - change the colour of the background from rgba
+   * @param red red amount
+   * @param green green amount
+   * @param blue blue amount
+   * @param alpha alpha (optional)
+   */
+  public setBgRGBAColour(red: number, green: number, blue: number, alpha = 1) {
+    // convert to rgba
+    const colour = new Gdk.RGBA({
+      red,
+      green,
+      blue,
+      alpha,
+    });
+
+    // Change the colour of the window
+    this.window.overrideBackgroundColor(Gtk.StateFlags.NORMAL, colour);
   }
 }
