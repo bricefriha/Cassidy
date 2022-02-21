@@ -64,6 +64,7 @@ export default class AppGod {
       // Set the type of the window
       const winType = pageTemplate.Page.type;
       if (winType) viewCode.resetWindow(winType);
+
       // Set up events
       viewCode.window.on("destroy", () => Gtk.mainQuit());
       viewCode.window.on("delete-event", () => false);
