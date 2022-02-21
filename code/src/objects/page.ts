@@ -87,7 +87,12 @@ export class Page {
         switch (ctlName) {
           case "Label":
             // Create the label
-            new Label(this.window, obj.Label.text, obj.Label.angle ?? 0);
+            new Label(
+              this.window,
+              obj.Label.text,
+              obj.Label.angle ?? 0,
+              obj.Label.textColor ?? "#000000"
+            );
             break;
 
           default:

@@ -6,12 +6,13 @@
         "onDestroy": "${quit}",
         "onDeleteEvent":"${delete}",
         "position": "Center",
-        "backgroundColor": "#f1f1f1",
+        "backgroundColor": "#1a1a1a",
         "type": "TopLevel",
         "content": [
             {
                 "Label": {
-                    "text": "  (\\__/)\n ( •_•)\n / > 🍕"
+                    "text": "  (\\__/)\n ( •_•)\n / > 🍕",
+                    "textColor": "#f1f1f1"
                 }
             }
         ]
