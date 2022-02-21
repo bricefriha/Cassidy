@@ -3,6 +3,8 @@
         "title": "Sample 1",
         "height": 100,
         "width": 200,
+        "onDestroy": "${quit}",
+        "onDeleteEvent":"${delete}",
         "position": "Center",
         "backgroundColor": "#f1f1f1",
         "type": "TopLevel",

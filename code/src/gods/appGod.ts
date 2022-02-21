@@ -64,10 +64,11 @@ export default class AppGod {
       // Set the type of the window
       const winType = pageTemplate.Page.type;
       if (winType) viewCode.resetWindow(winType);
-
+      //console.log(pageTemplate);
       // Set up events
-      viewCode.window.on("destroy", () => Gtk.mainQuit());
-      viewCode.window.on("delete-event", () => false);
+      viewCode.setEvents(pageTemplate.Page);
+      // viewCode.window.on("destroy", () => Gtk.mainQuit());
+      // viewCode.window.on("delete-event", () => false);
 
       // Set the size of the page
       viewCode.setSize(pageTemplate.Page.height, pageTemplate.Page.width);

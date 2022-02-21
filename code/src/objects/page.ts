@@ -3,6 +3,7 @@ import gi from "node-gtk";
 import { Label } from "./controls/label";
 // Use GtK
 import { Gdk, Gtk } from "../index";
+import { ViewModelGod } from "../gods/viewModelGod";
 //const Gtk = gi.require("Gtk", "3.0");
 
 export class Page {
@@ -39,6 +40,34 @@ export class Page {
    */
   public getName(): string {
     return this.constructor?.name;
+  }
+  /**
+   * setEvents
+   * @param page
+   */
+  public setEvents(page: Object) {
+    // Move through all properties
+    for (const property in page) {
+      //console.log(property);
+      if (property.startsWith("on")) {
+        let value: string = eval("page." + property);
+
+        // Get binding value if necessary
+        value = ViewModelGod.getValue(value, this.BindingContext);
+
+        switch (property) {
+          case "onDestroy":
+            // Register the destroy event
+            this.window.on("destroy", value);
+            break;
+          case "onDeleteEvent":
+            this.window.on("delete-event", value);
+            break;
+          default:
+            break;
+        }
+      }
+    }
   }
   /**
    * setTitle - Change the title of the window
