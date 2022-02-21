@@ -69,10 +69,7 @@ export default class AppGod {
       viewCode.window.on("delete-event", () => false);
 
       // Set the size of the page
-      viewCode.window.setDefaultSize(
-        pageTemplate.Page.height,
-        pageTemplate.Page.width
-      );
+      viewCode.setSize(pageTemplate.Page.height, pageTemplate.Page.width);
 
       // Set window position
       viewCode.setPosition(pageTemplate.Page.position);

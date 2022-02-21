@@ -160,4 +160,11 @@ export class Page {
     // Change the colour of the window
     this.window.overrideBackgroundColor(Gtk.StateFlags.NORMAL, colour);
   }
+  /**
+   * setSize
+   */
+  public setSize(height: number, width: number) {
+    // Set the size of the page
+    this.window.setDefaultSize(width, height);
+  }
 }
