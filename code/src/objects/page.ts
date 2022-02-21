@@ -89,9 +89,13 @@ export class Page {
             // Create the label
             new Label(
               this.window,
-              obj.Label.text,
-              obj.Label.angle ?? 0,
-              obj.Label.textColor ?? "#000000"
+              ViewModelGod.getValue(obj.Label.text, this.BindingContext),
+              ViewModelGod.getValue(
+                obj.Label.angle?.toString(),
+                this.BindingContext
+              ) ?? 0,
+              ViewModelGod.getValue(obj.Label.textColor, this.BindingContext) ??
+                "#000000"
             );
             break;
 

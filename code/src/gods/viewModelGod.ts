@@ -8,7 +8,7 @@ export class ViewModelGod {
    * @param bC Binding context
    */
   public static getValue(value: string, bC: Object) {
-    if (value.startsWith("$")) {
+    if (value?.startsWith("$")) {
       // Get the name of the binding value
       value = value.replace("$", "").replace("{", "").replace("}", "");
       return eval(`bC.${value}`);
