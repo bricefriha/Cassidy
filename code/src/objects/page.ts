@@ -86,15 +86,16 @@ export class Page {
       for (const ctlName in obj)
         switch (ctlName) {
           case "Label":
+            const lbl = obj.Label;
+
             // Create the label
             new Label(
               this.window,
-              ViewModelGod.getValue(obj.Label.text, this.BindingContext),
-              ViewModelGod.getValue(
-                obj.Label.angle?.toString(),
-                this.BindingContext
-              ) ?? 0,
-              ViewModelGod.getValue(obj.Label.textColor, this.BindingContext) ??
+              ViewModelGod.getValue(lbl.text, this.BindingContext),
+              parseInt(
+                ViewModelGod.getValue(lbl.angle, this.BindingContext) ?? 0
+              ),
+              ViewModelGod.getValue(lbl.textColor, this.BindingContext) ??
                 "#000000"
             );
             break;

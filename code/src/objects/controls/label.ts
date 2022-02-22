@@ -13,7 +13,7 @@ export class Label {
   public get label(): any {
     return this._label;
   }
-  public set label(v: any) {
+  private set label(v: any) {
     this._label = v;
   }
 
@@ -23,6 +23,8 @@ export class Label {
       label: text,
       angle: angle,
     });
+    console.log(typeof angle);
+    //this._label.setAngle(angle ?? 0);
     this.setColour(colour);
     // Add the label to the view
     win.add(this.label);
@@ -37,5 +39,12 @@ export class Label {
     colour.parse(hex);
 
     this.label.overrideColor(Gtk.StateFlags.NORMAL, colour);
+  }
+  /**
+   * setAngle - change the angle of the label
+   * @param angle angle you want to set
+   */
+  public setAngle(angle: number) {
+    this._label.angle(angle);
   }
 }
