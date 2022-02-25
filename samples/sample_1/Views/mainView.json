@@ -1,17 +1,21 @@
 {
     "Page": {
         "title": "Sample 1",
-        "height": 200,
-        "width": 80,
-        "position": "center",
+        "height": 100,
+        "width": 200,
+        "onDestroy": "${quit}",
+        "onDeleteEvent":"${delete}",
+        "onKeyPressed": "${key}",
+        "position": "Center",
+        "backgroundColor": "#1a1a1a",
+        "type": "TopLevel",
         "content": [
             {
                 "Label": {
-                    "text": "   ^_^\n ( •_•)\n / > 🍕"
+                    "text": "  (\\__/)\n ( •_•)\n / > 🍕",
+                    "textColor": "#f1f1f1"
                 }
             }
-        ]   
-            
-        
+        ]
     }
 }   

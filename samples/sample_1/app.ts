@@ -8,10 +8,6 @@ import process from "process";
 import { MainViewModel } from "./ViewModels/mainViewModel";
 import { MainView } from "./Views/mainViewC";
 
-// Register all your views
-//vg.register("./Views/mainView.json", new mainView());
-//vg.register("./Views/mainView.json", new anotherView());
-
 const ag = new appGod(__dirname);
 let d = new MainView();
 

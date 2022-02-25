@@ -1,5 +1,5 @@
 import viewGod from "./viewGod";
-import { Page } from "../objects/page";
+import { Window } from "../objects/window";
 //@ts-ignore
 import fs from "fs";
 //@ts-ignore
@@ -10,7 +10,7 @@ import process from "process";
 import gi from "node-gtk";
 
 // Use GtK
-import { Gtk } from "../index";
+import { Gdk, Gtk } from "../index";
 //const Gtk = gi.require("Gtk", "3.0");
 
 export default class AppGod {
@@ -36,7 +36,7 @@ export default class AppGod {
 
     gi.startLoop();
     Gtk.init();
-
+    Gdk.init([]);
     //process.cwd();
   }
 
@@ -44,11 +44,7 @@ export default class AppGod {
    * display - Display a page
    *
    */
-  public async display(viewCode: Page) {
-    // Set up events
-    viewCode.window.on("destroy", () => Gtk.mainQuit());
-    viewCode.window.on("delete-event", () => false);
-
+  public async display(viewCode: Window) {
     // Get the template path
     let jsonTemp: string = path.join(
       `${this.path}/Views`,
@@ -65,12 +61,21 @@ export default class AppGod {
       //console.log(data);
       let pageTemplate = JSON.parse(data);
 
+      // Set the type of the window
+      const winType = pageTemplate.Page.type;
+      if (winType) viewCode.resetWindow(winType);
+      //console.log(pageTemplate);
+      // Set up events
+      viewCode.setEvents(pageTemplate.Page);
+
       // Set the size of the page
-      viewCode.window.setDefaultSize(
-        pageTemplate.Page.height,
-        pageTemplate.Page.width
-      );
+      viewCode.setSize(pageTemplate.Page.height, pageTemplate.Page.width);
+
+      // Set window position
       viewCode.setPosition(pageTemplate.Page.position);
+
+      // Set Background colour
+      viewCode.setBgHexColour(pageTemplate.Page.backgroundColor);
 
       // Set the title
       viewCode.setTitle(pageTemplate.Page.title);
