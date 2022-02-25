@@ -29,6 +29,7 @@ export class MainViewModel {
     this._quit = () => Gtk.mainQuit();
     this._delete = () => false;
 
-    this._key = (k: any) => console.log(k);
+    this._key = (keyValue: any, keyNum: number) =>
+      console.log(`${keyNum} ${keyValue}`);
   }
 }

@@ -66,8 +66,11 @@ export class Page {
             break;
           case "onKeyPressed":
             this.window.on("key-press-event", (event: any) => {
-              value(Gtk.acceleratorGetLabel(event?.keyval, event.state));
-              return true;
+              // value(
+              //   Gtk.acceleratorGetLabel(event?.keyval, event.state),
+              //   event?.keyval
+              // );
+              return ViewModelGod.keyPress(value, event);
             });
             //this.window.on("key-press-event", value);
             break;

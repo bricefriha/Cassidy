@@ -67,11 +67,6 @@ export default class AppGod {
       //console.log(pageTemplate);
       // Set up events
       viewCode.setEvents(pageTemplate.Page);
-      //viewCode.window.getSignalName
-      // viewCode.window.on("key-press-event", (event: Gdk.) =>
-      //   console.log(`key pressed ${event?.keyval Gdk}`)
-      // );
-      // viewCode.window.on("delete-event", () => false);
 
       // Set the size of the page
       viewCode.setSize(pageTemplate.Page.height, pageTemplate.Page.width);
