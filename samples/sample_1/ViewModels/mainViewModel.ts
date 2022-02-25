@@ -17,8 +17,18 @@ export class MainViewModel {
     this._delete = v;
   }
 
+  private _key: Function;
+  public get key(): Function {
+    return this._key;
+  }
+  public set key(v: Function) {
+    this._key = v;
+  }
+
   constructor() {
     this._quit = () => Gtk.mainQuit();
     this._delete = () => false;
+
+    this._key = (k: any) => console.log(k);
   }
 }

@@ -5,6 +5,7 @@
         "width": 200,
         "onDestroy": "${quit}",
         "onDeleteEvent":"${delete}",
+        "onKeyPressed": "${key}",
         "position": "Center",
         "backgroundColor": "#1a1a1a",
         "type": "TopLevel",

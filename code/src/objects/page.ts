@@ -50,11 +50,12 @@ export class Page {
     for (const property in page) {
       //console.log(property);
       if (property.startsWith("on")) {
-        let value: string = eval("page." + property);
+        let value: any = eval("page." + property);
 
         // Get binding value if necessary
         value = ViewModelGod.getValue(value, this.BindingContext);
 
+        //console.log(value);
         switch (property) {
           case "onDestroy":
             // Register the destroy event
@@ -62,6 +63,13 @@ export class Page {
             break;
           case "onDeleteEvent":
             this.window.on("delete-event", value);
+            break;
+          case "onKeyPressed":
+            this.window.on("key-press-event", (event: any) => {
+              value(Gtk.acceleratorGetLabel(event?.keyval, event.state));
+              return true;
+            });
+            //this.window.on("key-press-event", value);
             break;
           default:
             break;
