@@ -4,9 +4,8 @@ import { Label } from "./controls/label";
 // Use GtK
 import { Gdk, Gtk } from "../index";
 import { ViewModelGod } from "../gods/viewModelGod";
-//const Gtk = gi.require("Gtk", "3.0");
 
-export class Page {
+export class Window {
   /**
    * Our lovely BindingContext
    */

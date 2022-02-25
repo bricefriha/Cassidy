@@ -1,4 +1,4 @@
-import { Page } from "../objects/page";
+import { Window } from "../objects/window";
 
 /**
  *  The class that take care of tranlating the view from .json to ts
@@ -18,16 +18,16 @@ export default class ViewGod {
   /**
    * Initiate
    */
-  public Init(viewCode: Page) {
-    const viewName = viewCode.getName();
-    console.log(viewName);
-    console.log(this.viewList[viewName]);
-  }
+  // public Init(viewCode: Window) {
+  //   const viewName = viewCode.getName();
+  //   console.log(viewName);
+  //   console.log(this.viewList[viewName]);
+  // }
   /**
    * register
    *
    * */
-  public register(viewTemplate: string, viewCode: Page) {
+  public register(viewTemplate: string, viewCode: Window) {
     // Add the view to the list
     this.viewList[viewCode.getName()] = viewTemplate;
   }

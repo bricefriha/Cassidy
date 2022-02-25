@@ -1,5 +1,5 @@
 import viewGod from "./viewGod";
-import { Page } from "../objects/page";
+import { Window } from "../objects/window";
 //@ts-ignore
 import fs from "fs";
 //@ts-ignore
@@ -44,7 +44,7 @@ export default class AppGod {
    * display - Display a page
    *
    */
-  public async display(viewCode: Page) {
+  public async display(viewCode: Window) {
     // Get the template path
     let jsonTemp: string = path.join(
       `${this.path}/Views`,
