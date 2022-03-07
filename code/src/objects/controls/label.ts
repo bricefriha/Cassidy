@@ -1,4 +1,5 @@
 import { Gdk, Gtk } from "../../index";
+import appGod from "../../gods/appGod";
 
 export class Label {
   private _text: string;
@@ -17,7 +18,23 @@ export class Label {
     this._label = v;
   }
 
-  constructor(win: any, text: string, angle: number, colour: string) {
+  private _ag: appGod;
+  public get ag(): appGod {
+    return this._ag;
+  }
+  public set ag(v: appGod) {
+    this._ag = v;
+  }
+
+  constructor(
+    win: any,
+    text: string,
+    angle: number,
+    colour: string,
+    ag: appGod
+  ) {
+    this._ag = ag;
+
     this._text = text;
     this._label = new Gtk.Label({
       label: text,
@@ -26,6 +43,9 @@ export class Label {
     console.log(typeof angle);
     //this._label.setAngle(angle ?? 0);
     this.setColour(colour);
+
+    this._label;
+
     // Add the label to the view
     win.add(this.label);
   }
@@ -46,5 +66,21 @@ export class Label {
    */
   public setAngle(angle: number) {
     this._label.angle(angle);
+  }
+  /**
+   * SetFont - set th font of the Label
+   * @param fontName Font name
+   * @param style Font Style
+   */
+  public setFont(fontName: string, style: string = "Regular") {
+    console.log("ddd");
+    this.label.overrideFont(
+      this._ag.fonts.find((f: any) => {
+        return (
+          f.PangoFontDescription.familyName === fontName &&
+          f.PangoFontDescription.styleName === style
+        );
+      })
+    );
   }
 }

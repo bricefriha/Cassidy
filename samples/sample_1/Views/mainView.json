@@ -7,13 +7,13 @@
         "onDeleteEvent":"${delete}",
         "onKeyPressed": "${key}",
         "position": "Center",
-        "backgroundColor": "#1a1a1a",
+        "backgroundColor": "#f1f1f1",
         "type": "TopLevel",
         "content": [
             {
                 "Label": {
                     "text": "  (\\__/)\n ( •_•)\n / > 🍕",
-                    "textColor": "#f1f1f1"
+                    "textColor": "#1a1a1a"
                 }
             }
         ]

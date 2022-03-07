@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "@types/node": "^7.0.5",
+    "freetype2": "^1.0.6",
     "fs": "0.0.1-security",
     "node-gtk": "^0.10.0"
   }

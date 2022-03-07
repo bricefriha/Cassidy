@@ -7,9 +7,11 @@ import path from "path";
 import process from "process";
 import { MainViewModel } from "./ViewModels/mainViewModel";
 import { MainView } from "./Views/mainViewC";
+import { AnotherView } from "./Views/anotherViewC";
 
 const ag = new appGod(__dirname);
 let d = new MainView();
 
 //new MainViewModel();
-ag.display(d);
+//ag.display(d);
+ag.display(new AnotherView());

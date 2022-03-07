@@ -4,6 +4,7 @@ import { Label } from "./controls/label";
 // Use GtK
 import { Gdk, Gtk } from "../index";
 import { ViewModelGod } from "../gods/viewModelGod";
+import appGod from "../gods/appGod";
 
 export class Window {
   /**
@@ -15,6 +16,13 @@ export class Window {
   }
   public set BindingContext(v: object) {
     this._bindingContext = v;
+  }
+  private _ag: appGod;
+  public get ag(): appGod {
+    return this._ag;
+  }
+  public set ag(v: appGod) {
+    this._ag = v;
   }
   /**
    * ToDo: property window being a 'any' is quite dangerous, better changing it to window type when/if possible
@@ -28,6 +36,7 @@ export class Window {
   }
 
   constructor() {
+    this._ag = new appGod("");
     this._bindingContext = new Object();
 
     // Create a new window
@@ -106,7 +115,8 @@ export class Window {
                 ViewModelGod.getValue(lbl.angle, this.BindingContext) ?? 0
               ),
               ViewModelGod.getValue(lbl.textColor, this.BindingContext) ??
-                "#000000"
+                "#000000",
+              this._ag
             );
             break;
 
@@ -185,10 +195,12 @@ export class Window {
   public setBgHexColour(hex: string) {
     // convert to rgba
     const colour = new Gdk.RGBA();
-    colour.parse(hex);
+    if (hex) {
+      colour.parse(hex);
 
-    // Change the colour of the window
-    this.window.overrideBackgroundColor(Gtk.StateFlags.NORMAL, colour);
+      // Change the colour of the window
+      this.window.overrideBackgroundColor(Gtk.StateFlags.NORMAL, colour);
+    }
   }
   /**
    * setBgColour - change the colour of the background from rgba
