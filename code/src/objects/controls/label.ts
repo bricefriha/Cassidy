@@ -31,6 +31,8 @@ export class Label {
     text: string,
     angle: number,
     colour: string,
+    fontName: string,
+    fontStyle: string,
     ag: appGod
   ) {
     this._ag = ag;
@@ -40,9 +42,10 @@ export class Label {
       label: text,
       angle: angle,
     });
-    console.log(typeof angle);
     //this._label.setAngle(angle ?? 0);
     this.setColour(colour);
+
+    this.setFont(fontName, fontStyle);
 
     this._label;
 
@@ -72,10 +75,18 @@ export class Label {
    * @param fontName Font name
    * @param style Font Style
    */
-  public setFont(fontName: string, style: string = "Regular") {
-    console.log("ddd");
+  public setFont(fontName: string = "Ubuntu", style: string = "Regular") {
+    console.log(this.ag.fonts);
+    console.log(
+      this.ag.fonts.find((f: any) => {
+        return (
+          f.PangoFontDescription.familyName === fontName &&
+          f.PangoFontDescription.styleName === style
+        );
+      })
+    );
     this.label.overrideFont(
-      this._ag.fonts.find((f: any) => {
+      this.ag.fonts.find((f: any) => {
         return (
           f.PangoFontDescription.familyName === fontName &&
           f.PangoFontDescription.styleName === style

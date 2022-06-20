@@ -47,23 +47,43 @@ export default class AppGod {
     Gtk.init();
     Gdk.init([]);
     //process.cwd();
-    console.log(this.path);
 
     this.checkFonts();
   }
   private async checkFonts() {
-    if (this._path != "")
-      // Load fonts
-      fs.readFile(
-        `${this._path}/Resources/fonts/Ubuntu-R.ttf`,
-        async (err, buffer: Buffer) => {
-          //console.log(buffer);
-          if (err) throw err;
-          await this.loadFont(buffer);
-        }
-      );
+    if (this._path == "") return;
+
+    // Load fonts
+    fs.readFile(
+      `${this._path}/Resources/fonts/Ubuntu-R.ttf`,
+      async (err, buffer: Buffer) => {
+        //console.log(buffer);
+        if (err) throw err;
+        this.loadFont(buffer);
+      }
+    );
+
+    fs.readFile(
+      `${this._path}/Resources/fonts/Ubuntu-B.ttf`,
+      async (err, buffer: Buffer) => {
+        //console.log(buffer);
+        if (err) throw err;
+        this.loadFont(buffer);
+      }
+    );
+
+    fs.readFile(
+      `${this._path}/Resources/fonts/Hubballi-Regular.ttf`,
+      async (err, buffer: Buffer) => {
+        //console.log(buffer);
+        if (err) throw err;
+        this.loadFont(buffer);
+      }
+    );
+
+    console.log("fonts fully loaded");
   }
-  private async loadFont(buffer: Buffer) {
+  private loadFont(buffer: Buffer) {
     //const result = {};
     const result: ft.FontFace = ft.NewMemoryFace(buffer, 0);
 
@@ -78,9 +98,9 @@ export default class AppGod {
 
     fontdesc.setFamily(face);
 
-    this.fonts.push(fontdesc);
-    console.log(fontdesc);
-    console.log(this.fonts);
+    this._fonts.push(fontdesc);
+    // console.log(fontdesc);
+    // console.log(this.fonts);
 
     //font.setSynthesize(Cairo.FtSynthesize.BOLD);
     //const synth = font.getSynthesize();
@@ -93,6 +113,7 @@ export default class AppGod {
    */
   public async display(viewCode: Window) {
     viewCode.ag = this;
+    console.log(this._fonts);
     // Get the template pathS
     let jsonTemp: string = path.join(
       `${this.path}/Views`,

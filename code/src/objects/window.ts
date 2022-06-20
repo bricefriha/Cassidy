@@ -99,6 +99,7 @@ export class Window {
    * setContent: Set the content of the page
    */
   public setContent(content: Array<any>) {
+    //console.log(this.ag);
     // Loop component declared in the template
     for (const obj of content) {
       // ToDo: forin in forof != pretty
@@ -116,7 +117,9 @@ export class Window {
               ),
               ViewModelGod.getValue(lbl.textColor, this.BindingContext) ??
                 "#000000",
-              this._ag
+              lbl.FontName,
+              lbl.FontStyle,
+              this.ag
             );
             break;
 
