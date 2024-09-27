@@ -1,4 +1,4 @@
-import { Gdk, Gtk } from "../../index";
+import { Gdk, Gtk } from "../../index.ts";
 
 export class Label {
   private _text: string;

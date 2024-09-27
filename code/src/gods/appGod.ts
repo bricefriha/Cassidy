@@ -1,16 +1,12 @@
-import viewGod from "./viewGod";
-import { Window } from "../objects/window";
-//@ts-ignore
-import fs from "fs";
-//@ts-ignore
-import path from "path";
-//@ts-ignore
-import process from "process";
-//@ts-ignore
-import gi from "node-gtk";
+import viewGod from "./viewGod.ts";
+import { Window } from "../objects/window.ts";
+import fs from "node:fs";
+import path from "node:path";
+import process from "node:process";
+import gi from 'npm:node-gtk';
 
 // Use GtK
-import { Gdk, Gtk } from "../index";
+import { Gdk, Gtk } from "../index.ts";
 //const Gtk = gi.require("Gtk", "3.0");
 
 export default class AppGod {

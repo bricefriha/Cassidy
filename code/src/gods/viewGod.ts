@@ -1,4 +1,4 @@
-import { Window } from "../objects/window";
+import { Window } from "../objects/window.ts";
 
 /**
  *  The class that take care of tranlating the view from .json to ts

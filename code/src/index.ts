@@ -1,5 +1,5 @@
-//@ts-ignore
-import gi from "node-gtk";
+
+import gi from "npm:node-gtk";
 // export required element
 export const Cairo = gi.require("cairo");
 export const GLib = gi.require("GLib", "2.0");

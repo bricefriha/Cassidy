@@ -1,4 +1,4 @@
-import { Gtk } from "..";
+import { Gtk } from "../index.ts";
 
 /**
  *  The class that take care of the dialog view <-> viewmodel

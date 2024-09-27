@@ -1,4 +1,4 @@
-import { Gtk } from "../../../code/src";
+import { Gtk } from "../../../code/src/index.ts";
 
 export class MainViewModel {
   private _quit: Function;

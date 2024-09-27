@@ -1,9 +1,8 @@
-//@ts-ignore
-import gi from "node-gtk";
-import { Label } from "./controls/label";
-// Use GtK
-import { Gdk, Gtk } from "../index";
-import { ViewModelGod } from "../gods/viewModelGod";
+
+import gi from 'npm:node-gtk';
+import { Label } from "./controls/label.ts";
+import { Gdk, Gtk } from "../index.ts";
+import { ViewModelGod } from "../gods/viewModelGod.ts";
 
 export class Window {
   /**

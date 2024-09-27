@@ -1,6 +1,6 @@
-import { Window } from "../../../code/src/objects/window";
-import viewGod from "../../../code/src/gods/viewGod";
-import { MainViewModel } from "../ViewModels/mainViewModel";
+import { Window } from "../../../code/src/objects/window.ts";
+import viewGod from "../../../code/src/gods/viewGod.ts";
+import { MainViewModel } from "../ViewModels/mainViewModel.ts";
 
 export class MainView extends Window {
   constructor() {
